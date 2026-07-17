@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>LINIA LAB — Laboratoire d'Innovation Numérique et d'IA</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p6O1X9b+Y6U5q8Q+K2xV1Z6q9n1k9GQ5Q1sXb1tX6Y1v1Xx3b1Z1Y1x1+Y1Z1+Y" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="nav--fixed">
+		<div class="container nav">
+			<a class="brand" href="#accueil">
+				<img src="Images/logoLiniaLab.png" alt="LINIA LAB logo" class="logo">
+				<span class="brand-text">LINIA LAB</span>
+			</a>
+			<nav class="nav-links" id="navLinks">
+				<a href="index.html">Accueil</a>
+				<a href="projets.html">Projets</a>
+				<a href="actualites.html">Actualités</a>
+				<a href="equipe.html">Équipe</a>
+				<a href="apropos.html">À propos</a>
+				<a href="contact.html">Contact</a>
+			</nav>
+			<button id="navToggle" class="nav-toggle" aria-label="ouvrir le menu">
+				<span></span><span></span><span></span>
+			</button>
+		</div>
+	</header>
+    <main>
+    <!-- Contact -->
+		<section id="contact" class="section gray">
+			<div class="container contact-grid">
+				<div>
+					<h2>Contactez-nous</h2>
+					<p class="muted">Siège : Université de Kinshasa (Unikin)</p>
+					<form id="contactForm" class="form">
+						<div class="row">
+							<input type="text" name="nom" placeholder="Nom" required>
+							<input type="text" name="prenom" placeholder="Prénom" required>
+						</div>
+						<div class="row">
+							<input type="email" name="email" placeholder="Email" required>
+							<input type="tel" name="tel" placeholder="Téléphone">
+						</div>
+						<input type="text" name="sujet" placeholder="Sujet">
+						<textarea name="message" rows="5" placeholder="Message"></textarea>
+						<p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+						<button class="btn primary" type="submit">Envoyer</button>
+					</form>
+				</div>
+				<div>
+					<h3>Localisation</h3>
+					<iframe title="Unikin" src="https://www.google.com/maps?q=Université+de+Kinshasa&output=embed" loading="lazy"></iframe>
+					<ul class="contact-info">
+						<li><i class="fa-solid fa-location-dot"></i> Université de Kinshasa, Kinshasa</li>
+						<li><i class="fa-solid fa-phone"></i> +243 999 956 315</li>
+						<li><i class="fa-solid fa-envelope"></i> linialab@gmail.com</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+        </main>
+
+ 
+	<footer class="site-footer">
+		<div class="container footer-grid">
+			<div>
+				<img src="Images/logoLiniaLab.png" alt="LINIA LAB" class="logo-sm">
+				<p>LINIA LAB — Laboratoire d'Innovation Numérique et d'Intelligence Artificielle. Siège: Université de Kinshasa (Unikin).</p>
+			</div>
+			<div>
+				<h4>Liens</h4>
+				<ul>
+					<li><a href="projets.html">Projets</a></li>
+					<li><a href="actualites.html">Actualités</a></li>
+					<li><a href="equipe.html">Équipe</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>Contact</h4>
+				<p>linialab@gmail.com</p>
+				<p>© 2026 LINIA LAB. Tous droits réservés.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="scripts.js"></script>
+</body>
+</html>
+
