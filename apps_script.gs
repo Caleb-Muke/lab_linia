@@ -1,5 +1,5 @@
 // Same Web App URL used in scripts.js
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyW3N_ZILg0nzk6dDwHG_CZ6IiUQH98LGSQ7GT-dOlv-iH7_QzjIO_KoRLJhJT2W8KU/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzTiSq90iITbBRgxvAHWv5ckqZ23XwzEriT8JfaX6RJEYAT3etApRHriz1vN2h5ojpi/exec';
 
 // Replace SHEET_ID with your Google Sheet ID (the long id in the sheet URL)
 const SHEET_ID = '156RZQc7Utg-yf6JDtGUZy-cmSxxuh4IzB4sR0wp7VFs';
