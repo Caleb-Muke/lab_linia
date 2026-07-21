@@ -1,5 +1,5 @@
 // Same Web App URL used in scripts.js
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzTiSq90iITbBRgxvAHWv5ckqZ23XwzEriT8JfaX6RJEYAT3etApRHriz1vN2h5ojpi/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzz18K2EmZPC9UIrAJB_3ZrMi0s-EFMTLB5G5DC4Ev-iIho7lcmWFam2-xpvDHISTVW/exec';
 
 // Replace SHEET_ID with your Google Sheet ID (the long id in the sheet URL)
 const SHEET_ID = '156RZQc7Utg-yf6JDtGUZy-cmSxxuh4IzB4sR0wp7VFs';
@@ -13,7 +13,6 @@ function doPost(e) {
     if (contentType.indexOf('application/json') !== -1) {
       payload = JSON.parse(e.postData.contents);
     } else {
-      // fallback for form-encoded data
       payload = e.parameter || {};
     }
 
