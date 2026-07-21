@@ -41,7 +41,7 @@ if(statsSection){
   statsObserver.observe(statsSection);
 }
 
-const URL = "https://script.google.com/macros/s/AKfycbyW3N_ZILg0nzk6dDwHG_CZ6IiUQH98LGSQ7GT-dOlv-iH7_QzjIO_KoRLJhJT2W8KU/exec";
+const URL = "https://script.google.com/macros/s/AKfycbzz18K2EmZPC9UIrAJB_3ZrMi0s-EFMTLB5G5DC4Ev-iIho7lcmWFam2-xpvDHISTVW/exec";
 
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
