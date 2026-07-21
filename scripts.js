@@ -1,4 +1,3 @@
-
 // Mobile menu toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
@@ -50,34 +49,41 @@ if(contactForm){
     e.preventDefault();
 
     const formData = new FormData(contactForm);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
 
-const response = await fetch(URL, {
-    method: "POST",
-    body: formData
-});
+    if(formStatus){
+      formStatus.textContent = 'Envoi en cours...';
+      formStatus.classList.add('show');
+    }
 
-const result = await response.json();
+    try {
+      const response = await fetch(URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-if(result.status === "success"){
-    contactForm.reset();
-    formStatus.textContent = "Merci ! Votre message a bien été envoyé.";
-}else{
-    formStatus.textContent = result.message;
+      if(!response.ok){
+        const errorText = await response.text();
+        throw new Error(errorText || 'Network response was not ok');
+      }
+
+      contactForm.reset();
+      if(formStatus){
+        formStatus.textContent = 'Merci ! Votre message a bien été envoyé.';
+        formStatus.classList.add('show');
+      }
+    } catch (error) {
+      console.error(error);
+      if(formStatus){
+        formStatus.textContent = 'Erreur lors de l\'envoi. Réessayez plus tard.';
+        formStatus.classList.add('show');
+      }
+    }
+  });
+} else {
+  console.warn('Le formulaire #contactForm est introuvable.');
 }
-
-    const formData = new FormData(contactForm);
-
-const response = await fetch(URL, {
-    method: "POST",
-    body: formData
-});
-
-const result = await response.json();
-
-if(result.status === "success"){
-    contactForm.reset();
-    formStatus.textContent = "Merci ! Votre message a bien été envoyé.";
-}else{
-    formStatus.textContent = result.message;
-}
-
