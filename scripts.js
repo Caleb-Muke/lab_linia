@@ -1,3 +1,4 @@
+
 // Mobile menu toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
@@ -40,7 +41,8 @@ if(statsSection){
   statsObserver.observe(statsSection);
 }
 
-// Contact form handler
+const URL = "https://script.google.com/macros/s/AKfycbyW3N_ZILg0nzk6dDwHG_CZ6IiUQH98LGSQ7GT-dOlv-iH7_QzjIO_KoRLJhJT2W8KU/exec";
+
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 if(contactForm){
@@ -48,45 +50,41 @@ if(contactForm){
     e.preventDefault();
 
     const formData = new FormData(contactForm);
-    const nom = formData.get('nom') || '';
-    const prenom = formData.get('prenom') || '';
-    const email = formData.get('email') || '';
-    const tel = formData.get('tel') || '';
-    const sujet = formData.get('sujet') || '';
-    const message = formData.get('message') || '';
-    const subject = `Nouveau message de ${prenom} ${nom} - ${sujet}`;
-    const body = `Nom: ${nom}\nPrénom: ${prenom}\nEmail: ${email}\nTéléphone: ${tel}\n\nMessage:\n${message}`;
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
 
     if(formStatus){
       formStatus.textContent = 'Envoi en cours...';
       formStatus.classList.add('show');
     }
 
-    formData.set('_subject', subject);
-    formData.set('_captcha', 'false');
-    formData.set('_template', 'table');
-
     try {
-      const response = await fetch('https://formsubmit.co/ajax/linialab@gmail.com', {
+      const response = await fetch(URL, {
         method: 'POST',
-        body: formData
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
 
-      if(response.ok){
-        contactForm.reset();
-        if(formStatus){
-          formStatus.textContent = 'Merci ! Votre message a bien été envoyé.';
-          formStatus.classList.add('show');
-        }
-      } else {
-        throw new Error('Échec de l\'envoi');
+      if(!response.ok){
+        throw new Error('Network response was not ok');
       }
-    } catch (error) {
+
+      contactForm.reset();
       if(formStatus){
-        formStatus.textContent = 'Une erreur est survenue. Veuillez utiliser votre messagerie ou nous contacter directement à linialab@gmail.com.';
+        formStatus.textContent = 'Merci ! Votre message a bien été envoyé.';
         formStatus.classList.add('show');
       }
-      window.location.href = `mailto:mangalacaleb011@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    } catch (error) {
+      console.error(error);
+      if(formStatus){
+        formStatus.textContent = 'Erreur lors de l\'envoi. Réessayez plus tard.';
+        formStatus.classList.add('show');
+      }
     }
   });
+} else {
+  console.warn('Le formulaire #contactForm est introuvable.');
 }
+
